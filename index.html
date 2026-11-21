@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Perry Abdelmalak – CS & AI Student</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+:root{--bg:#06060A;--card:#08080D;--white:#FFFFFF;--mute:#B8B8C2;--blue:#1A26D9;--blue-n:#2A35E8;--violet:#6D19D1;--mag:#C818B9;--red:#E01E5A;
+--sans:'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;--serif:'Instrument Serif','Playfair Display',Georgia,serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);background:var(--bg);color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--mute);font-family:var(--sans);font-size:clamp(.95rem,.9rem + .25vw,1.08rem);line-height:1.7;overflow-x:hidden;position:relative}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.16;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+h1,h2,h3{color:var(--white);margin:0;font-weight:800;letter-spacing:-.02em;line-height:1.05}
+em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
+a{color:inherit}
+a:focus-visible,.pill:focus-visible{outline:2px solid var(--mag);outline-offset:4px}
+/* ambient orbs */
+.orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;animation:breathe 14s ease-in-out infinite}
+.o1{width:46vw;height:46vw;background:radial-gradient(circle,var(--blue),transparent 65%);top:-10vw;right:-8vw}
+.o2{width:40vw;height:40vw;background:radial-gradient(circle,var(--violet),transparent 65%);top:40vh;left:10vw;animation-delay:-5s}
+.o3{width:34vw;height:34vw;background:radial-gradient(circle,var(--red),transparent 65%);bottom:-8vw;right:12vw;opacity:.35;animation-delay:-9s}
+@keyframes breathe{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(2.5vw,-2vw) scale(1.12)}}
+/* rail */
+.rail{position:fixed;left:0;top:0;bottom:0;width:72px;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:32px 0;border-right:1px solid rgba(255,255,255,.07);background:rgba(6,6,10,.55);backdrop-filter:blur(10px)}
+.rail a{writing-mode:vertical-rl;transform:rotate(180deg);text-decoration:none;font-size:.78rem;letter-spacing:.12em;color:var(--mute);transition:color .2s}
+.rail a:hover{color:var(--white)}
+.rail .nm{color:var(--white);font-weight:700}
+.rail nav{display:flex;flex-direction:column;gap:28px}
+.top{display:none}
+main{position:relative;z-index:1;margin-left:72px}
+section{padding:clamp(64px,10vw,130px) clamp(22px,6vw,96px)}
+.wrap{max-width:1080px;margin:0 auto}
+/* hero */
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden}
+.flare{position:absolute;right:-14vw;top:50%;width:min(62vw,720px);aspect-ratio:1/1.25;transform:translateY(-50%);border-radius:50% 50% 0 0 / 60% 60% 0 0;background:conic-gradient(from 200deg at 50% 100%,var(--blue),var(--violet),var(--mag),var(--red),var(--blue));filter:blur(70px);opacity:.75;animation:breathe 16s ease-in-out infinite;pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-size:clamp(2.6rem,8.2vw,6.6rem);max-width:12ch}
+.hero p.lead{font-size:clamp(1.05rem,1rem + .6vw,1.4rem);max-width:34ch;margin:28px 0 0;color:var(--white)}
+.hero .meta{margin-top:36px;font-size:.9rem;display:flex;flex-wrap:wrap;gap:6px 26px}
+/* section titles */
+.st{display:flex;align-items:baseline;gap:18px;margin-bottom:clamp(32px,5vw,60px)}
+.st .n{font-size:clamp(1.1rem,2vw,1.5rem);font-weight:800;color:var(--blue-n)}
+.st h2{font-size:clamp(2rem,5vw,3.8rem)}
+/* rows */
+.row{display:grid;grid-template-columns:minmax(150px,230px) 1fr;gap:12px clamp(20px,4vw,56px);padding:30px 0;border-top:1px solid rgba(255,255,255,.1)}
+.row h3{font-size:clamp(1.05rem,1rem + .5vw,1.3rem);line-height:1.25;letter-spacing:-.01em}
+.row .when{font-size:.88rem}
+.row ul{margin:0;padding-left:1.1em}
+.row li{margin:0 0 .6em}
+.row li::marker{color:var(--mag)}
+.row b{color:var(--white);font-weight:700}
+/* pills */
+.pills{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,56px)}
+.pill{position:relative;min-height:520px;border-radius:140px;background:var(--card);padding:clamp(70px,8vw,110px) clamp(26px,3vw,44px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;transition:transform .35s ease}
+.pill::before{content:"";position:absolute;inset:-2px;border-radius:inherit;z-index:-1;background:linear-gradient(180deg,var(--blue),var(--violet) 50%,var(--mag));filter:blur(22px);opacity:.55;transition:opacity .35s,filter .35s}
+.pill::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(180deg,var(--blue-n),var(--mag));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.5;transition:opacity .35s;pointer-events:none}
+.pill:hover{transform:translateY(-10px)}
+.pill:hover::before{opacity:.95;filter:blur(30px)}
+.pill:hover::after{opacity:1}
+.pill h3{font-size:clamp(1.5rem,2.4vw,2rem)}
+.pill p{margin:0;font-size:.95rem}
+.pill b{color:var(--white);font-weight:700}
+/* banner */
+.banner{background:linear-gradient(115deg,#0b1190 0%,var(--blue) 22%,var(--violet) 52%,var(--mag) 80%,var(--red) 100%);position:relative;overflow:hidden}
+.banner::before{content:"";position:absolute;inset:-30% -10% auto -10%;height:90%;background:radial-gradient(ellipse at 30% 100%,rgba(255,255,255,.22),transparent 60%);transform:skewY(-8deg)}
+.banner .wrap{position:relative}
+.banner p{color:var(--white);font-size:clamp(1.25rem,1rem + 1.8vw,2.3rem);line-height:1.35;letter-spacing:-.01em;max-width:30ch;margin:0}
+.banner p em{font-size:1.08em}
+.banner .sub{margin-top:30px;font-size:clamp(.95rem,.9rem + .3vw,1.1rem);max-width:60ch;color:rgba(255,255,255,.86)}
+/* contact */
+.contact h2{font-size:clamp(2.4rem,7vw,5.4rem);max-width:14ch}
+.contact .links{margin-top:36px;display:flex;flex-wrap:wrap;gap:14px}
+.contact .links a{padding:15px 28px;border-radius:999px;border:1px solid rgba(255,255,255,.22);text-decoration:none;color:var(--white);font-weight:700;transition:border-color .25s,box-shadow .25s,transform .25s}
+.contact .links a:hover{border-color:var(--mag);box-shadow:0 0 34px rgba(200,24,185,.45);transform:translateY(-3px)}
+footer{position:relative;z-index:1;margin-left:72px;padding:28px clamp(22px,6vw,96px) 48px;font-size:.82rem;border-top:1px solid rgba(255,255,255,.07)}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (max-width:900px){
+ .pills{grid-template-columns:1fr}
+ .pill{min-height:0;border-radius:72px;padding:64px 30px}
+ .row{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+ .rail{display:none}
+ main,footer{margin-left:0}
+ .top{display:flex;position:fixed;top:0;left:0;right:0;z-index:50;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0px) + 12px) 20px 12px;background:rgba(6,6,10,.72);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07);font-size:.82rem}
+ .top a{text-decoration:none}.top .nm{color:var(--white);font-weight:700}
+ .top nav{display:flex;gap:16px}
+ .flare{width:110vw;right:-40vw;opacity:.5}
+ .hero{padding-top:70px}
+ .pill{border-radius:56px}
+}
+@media (prefers-reduced-motion:reduce){.orb,.flare{animation:none}.js .rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="orbs" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div>
+
+<aside class="rail" aria-label="Side navigation">
+ <a class="nm" href="#top">Perry Abdelmalak</a>
+ <nav><a href="#experience">Experience</a><a href="#leadership">Leadership</a><a href="#education">Education</a><a href="#skills">Skills</a></nav>
+ <a href="#contact">Contact</a>
+</aside>
+<header class="top"><a class="nm" href="#top">Perry Abdelmalak</a><nav><a href="#experience">Work</a><a href="#education">Study</a><a href="#contact">Contact</a></nav></header>
+
+<main id="top">
+<section class="hero">
+ <div class="flare" aria-hidden="true"></div>
+ <div class="wrap">
+  <h1>Perry <em>Abdelmalak</em>, building with <em>AI</em> and people</h1>
+  <p class="lead">First-year CS &amp; AI student who evaluates LLMs in Egyptian Arabic, writes Python, and leads student communities.</p>
+  <div class="meta"><span>New Cairo, Egypt</span><span>University of London at EUE</span><span>Seeking internship opportunities</span></div>
+ </div>
+</section>
+
+<section id="summary" class="banner">
+ <div class="wrap rv">
+  <p>3.987 high school GPA, <em>top of a class of 120</em>, and hands-on LLM evaluation work.</p>
+  <p class="sub">Python builder (OOP, NumPy, pandas), Karel Code Challenge semifinalist, and digital content creator, seeking internship opportunities in AI/data, fintech, or digital marketing.</p>
+ </div>
+</section>
+
+<section id="experience"><div class="wrap">
+ <div class="st rv"><span class="n">01</span><h2>Work <em>experience</em></h2></div>
+ <div class="row rv"><div><h3>AI Training Specialist</h3><div class="when">Outlier AI · Remote<br>Aug 2026 – Present</div></div>
+  <ul><li>Evaluate and improve LLM responses using AETHER, specializing in natural language tasks and conversational fluency in <b>Egyptian Arabic</b>.</li></ul></div>
+ <div class="row rv"><div><h3>Social media &amp; digital content</h3><div class="when">Independent / Business</div></div>
+  <ul><li>Managed social media accounts and content creation for a local nail business, a friend’s brand, and community platforms.</li><li>Designed videos, promotional posters, and logos.</li></ul></div>
+ <div class="row rv"><div><h3>Peer tutoring &amp; mentoring</h3><div class="when">School</div></div>
+  <ul><li>Hosted pre-midterm and pre-final Zoom review sessions across multiple classes.</li><li>Mentored peers and younger students in Math, Calculus, Statistics, English, Arabic, Coding, and Business, with simplified summaries and study guides published on the student portal for the entire grade.</li></ul></div>
+</div></section>
+
+<section id="leadership"><div class="wrap">
+ <div class="st rv"><span class="n">02</span><h2>Projects &amp; <em>leadership</em></h2></div>
+ <div class="row rv"><div><h3>Python &amp; algorithms</h3><div class="when">Karel Code Challenge Online 2026</div></div>
+  <ul><li>Engineered structured Python applications using OOP and modular functions.</li><li>Reached the <b>semifinals</b> of the Karel Code Challenge Online 2026, ranked 5th, just outside the 4 finalists.</li></ul></div>
+ <div class="row rv"><div><h3>Student leadership</h3><div class="when">University of London · EUE</div></div>
+  <ul><li>Elected <b>Student Representative</b> for 2 of 8 cohorts in the University of London program.</li><li>Member of the EUE MUN Marketing and Sponsorship team.</li><li>Co-founding a student club built on a “Meet More, Make More, Do More” framework, designed to help students turn academic knowledge into real-world connections, careers, and business exposure.</li><li>Planning workshops on freelancing, financial literacy, sales, and negotiation, plus company visits, pitch competitions, and entrepreneurship challenges.</li></ul></div>
+ <div class="row rv"><div><h3>Public speaking</h3><div class="when">INSUTECH · EU Business School</div></div>
+  <ul><li>Presented to the CEO of INSUTECH on combining mechanics and calculus.</li><li>Pitched an original business idea to a visiting Spanish delegation from EU Business School and fellow contestants.</li></ul></div>
+ <div class="row rv"><div><h3>Community service</h3><div class="when">Church of Virgin Mary and St. Bishoy<br>2024 – Present</div></div>
+  <ul><li>Completed <b>322 verified service hours</b> managing church social media and producing event teasers, camp recaps, and Q&amp;A videos.</li><li>Coordinated ~140 participants into WhatsApp groups during a two-day service camp in Tanta.</li></ul></div>
+</div></section>
+
+<section id="education"><div class="wrap">
+ <div class="st rv"><span class="n">03</span><h2><em>Education</em></h2></div>
+ <div class="row rv"><div><h3>B.Sc. Computer Science &amp; Artificial Intelligence</h3><div class="when">Oct 2026 – Sept 2030</div></div>
+  <ul><li>University of London, studying at European Universities in Egypt (EUE), Cairo.</li><li>Coursework: Computer Science, Mathematics, Statistics, Accounting, Finance, and Economics.</li></ul></div>
+ <div class="row rv"><div><h3>High School Diploma</h3><div class="when">June 2026</div></div>
+  <ul><li>New Generation International School, Cairo. GPA 3.987, top academic standing in a class of 120.</li><li>Top scores in AP Psychology and AP English.</li><li>Authored the school book prologue and a French-language world monuments magazine.</li></ul></div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+ <div class="st rv"><span class="n">04</span><h2>Core <em>skills</em></h2></div>
+ <div class="pills">
+  <div class="pill rv"><h3><em>Technical</em></h3><p><b>Python</b></p><p>OOP, NumPy, pandas, collections, functions, file operations, error handling</p><p>Problem solving and debugging</p></div>
+  <div class="pill rv"><h3><em>Creative</em> &amp; digital</h3><p>Canva, graphic and logo design, promotional posters, video editing</p><p>Social media management</p><p>Word, Excel, PowerPoint, Google Workspace</p></div>
+  <div class="pill rv"><h3><em>Languages</em> &amp; leadership</h3><p>English (Fluent), Arabic (Native), French (Basic), Spanish (Basic)</p><p>Public speaking, team coordination, event and group organization, creative direction</p></div>
+ </div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+ <div class="rv"><h2>Let’s <em>talk</em> at the career fair</h2>
+ <div class="links"><a href="mailto:perryabdelmalak@gmail.com">perryabdelmalak@gmail.com</a><a href="tel:+201064368080">+20 106 436 8080</a><a href="https://www.linkedin.com/in/perry-happy" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/perryabdelmalak" target="_blank" rel="noopener">GitHub</a></div></div>
+</div></section>
+</main>
+<footer>© 2026 Perry Abdelmalak · New Cairo, Egypt</footer>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+ var els=document.querySelectorAll('.rv');
+ if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+ els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
